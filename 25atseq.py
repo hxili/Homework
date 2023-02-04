@@ -11,10 +11,10 @@ import random
 seq = ''
 AT_count = 0
 for i in range(30):
-    if random.random() <= 0.6: 
-        seq += random.choice('AT')
-        AT_count += 1
-    else: seq += random.choice('CG')
+	if random.random() <= 0.6: 
+		seq += random.choice('AT')
+		AT_count += 1
+	else: seq += random.choice('CG')
 print(len(seq), AT_count/len(seq), seq)
 """
 python3 25atseq.py

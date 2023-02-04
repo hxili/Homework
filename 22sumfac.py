@@ -9,8 +9,8 @@ n = 5
 sum = 0
 factorial = 1
 for i in range(1,n+1):
-    sum += i
-    factorial *= i
+	sum += i
+	factorial *= i
 print(n, sum, factorial)
 
 """

@@ -17,12 +17,12 @@ w = 11
 window = seq_[:w]
 GC = 0
 for i in window:
-    if i == 'C' or i == 'G': GC += 1
+	if i == 'C' or i == 'G': GC += 1
 for i in range(len(seq)-w+1):
-    print(i, window, f'{GC/w:.4f}')
-    if window[0] == 'C' or window[0] == 'G': GC -= 1
-    window = window[1:] + seq_[i+w]
-    if window[w-1] == 'C' or window[w-1] == 'G': GC += 1
+	print(i, window, f'{GC/w:.4f}')
+	if window[0] == 'C' or window[0] == 'G': GC -= 1
+	window = window[1:] + seq_[i+w]
+	if window[w-1] == 'C' or window[w-1] == 'G': GC += 1
 
 """
 python3 26gcwin.py

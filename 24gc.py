@@ -6,7 +6,7 @@
 dna = 'ACAGAGCCAGCAGATATACAGCAGATACTAT'
 GC = 0
 for i in dna:
-    if i == 'C' or i == 'G': GC += 1
+	if i == 'C' or i == 'G': GC += 1
 print(f'{GC/len(dna):.2f}')
 
 """

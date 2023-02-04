@@ -9,9 +9,9 @@
 all_acid = 'ACDEFGHIKLMNPQRSTVWY'
 count = 0
 for i in range(len(all_acid)):
-    for j in all_acid[i+1:]:
-        print(all_acid[i], j)
-        count += 1
+	for j in all_acid[i+1:]:
+		print(all_acid[i], j)
+		count += 1
 print(count)
 """
 python3 28aapairs.py
