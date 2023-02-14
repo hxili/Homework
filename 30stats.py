@@ -7,7 +7,6 @@
 
 # Note: you are not allowed to import any library except sys
 import sys
-print(sys.argv)
 vals = []
 for thing in sys.argv[1:]:
 	vals.append(float(thing))
@@ -23,8 +22,8 @@ for val in vals:
 Std_dev = (Sum_squares / Count) ** 0.5
 if Count % 2 == 0: Mid = (vals[Mid-1] + val[Mid]) / 2
 else: Mid = vals[Mid]
-print(f"Count: {Count}", f"Minimum: {Min}", f"Maximum: {Max}",f"Mean: {Mean:.3f}", f"Std. dev: {Std_dev:.3f}", f"Median {Mid:.3f}", sep = "\n")
-
+print(f"Count: {Count}", f"Minimum: {Min}", f"Maximum: {Max}",f"Mean: {Mean:.3f}", 
+f"Std. dev: {Std_dev:.3f}", f"Median {Mid:.3f}", sep = "\n")
 
 
 
