@@ -27,6 +27,7 @@ parser.add_argument('--switch', action='store_true', help='on/off switch')
 arg = parser.parse_args()
 c = 'ACGT'
 m = arg.w // 2
+
 if arg.switch == False:
 	def convert(acid):
 		return acid.lower()
