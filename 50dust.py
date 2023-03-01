@@ -42,19 +42,18 @@ for name, seq in mcb185.read_fasta(arg.s):
 	p = [0] * len(c)
 	count = [0] * len(c)
 	seqout = ''
+	
+#Calculate the entropy of the first window
 	for i in range(len(c)):
 		count[i] = win.count(c[i])
 		p[i] = count[i] / arg.w
 		if p[i] != 0:
 			H[i] -= p[i] * math.log2(p[i])
 			
-	a = 0
+#Move the window and replace the nucleotide in the middle of window whose entropy is lower than threshold
 	for i in range(len(seq)-arg.w):
 		if sum(H) < arg.t:
 			seql[i+m] = convert(seql[i+m])
-			a += 1
-			if a % 60 == 0:
-				seqout += '\n' + ''.join(seql[a-60:a])
 		ps = c.find(win[0])
 		count[ps] -= 1
 		p[ps] = count[ps] / arg.w
@@ -62,12 +61,17 @@ for name, seq in mcb185.read_fasta(arg.s):
 		pe = c.find(win[-1])
 		count[pe] += 1
 		p[pe] = count[pe] / arg.w
-
 		for i in range(2):
 			if p[ps] != 0: H[ps] = -p[ps] * math.log2(p[ps])
 			else:         H[ps] = 0
 			ps = pe
-	print('>', name, seqout)
+
+#Output results
+	for i in range(len(seq) // 60):
+		seqout += ''.join(seql[:60]) + '\n'
+		seql = seql[60:]
+	seqout += ''.join(seql)
+	print(f">{name}", seqout, sep = '\n')
 
 
 """
