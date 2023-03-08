@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # 50dust.py
 
 # Write a better version of your 42dust.py program
@@ -22,13 +23,13 @@ import math
 parser = argparse.ArgumentParser(description='Brief description of program.')
 parser.add_argument('-w', metavar='<int>', type=int, help='window size', default = 11)
 parser.add_argument('-t', metavar='<float>', type=float, help='entropy threshold', default = 1.4)
-parser.add_argument('-s', type=str, metavar='<path>', help='some file')
-parser.add_argument('--switch', action='store_true', help='on/off switch')
+parser.add_argument('-s', action='store_true', help='on/off switch')
+parser.add_argument('file', type=str, metavar='<path>', help='some file')
 arg = parser.parse_args()
 c = 'ACGT'
 m = arg.w // 2
 
-if arg.switch == False:
+if arg.s == True:
 	def convert(acid):
 		return acid.lower()
 else:
@@ -36,7 +37,7 @@ else:
 		return 'N'
 
 
-for name, seq in mcb185.read_fasta(arg.s):
+for name, seq in mcb185.read_fasta(arg.file):
 	seql = list(seq.upper())
 	win = seq[:arg.w]
 	H = [0] * len(c)
