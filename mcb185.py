@@ -66,6 +66,7 @@ def translate(seq, frame = 0, code = gcode):
 		else:                 protein += code[codon]
 	return(protein)
 
+
 '''
 gstart_codon = ['ATG', 'GTG', 'TTG']
 
