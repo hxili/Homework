@@ -23,17 +23,17 @@ import math
 parser = argparse.ArgumentParser(description='Brief description of program.')
 parser.add_argument('-w', metavar='<int>', type=int, help='window size', default = 11)
 parser.add_argument('-t', metavar='<float>', type=float, help='entropy threshold', default = 1.4)
-parser.add_argument('-s', action='store_true', help='on/off switch')
+parser.add_argument('-s', action='store_true', help='on/off switch for N-based/lowercase masking')
 parser.add_argument('file', type=str, metavar='<path>', help='some file')
 arg = parser.parse_args()
 c = 'ACGT'
 m = arg.w // 2
 
 if arg.s == True:
-	def convert(acid):
-		return acid.lower()
+	def convert(nucleotide):
+		return nucleotide.lower()
 else:
-	def convert(acid):
+	def convert(nucleotide):
 		return 'N'
 
 
