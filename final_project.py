@@ -12,7 +12,7 @@ arg = parser.parse_args()
 smatrix = [[0 for i in range(len(arg.seq[0])+1)] for j in range(len(arg.seq[1])+1)]
 tmatrix = [[0 for i in range(len(arg.seq[0]))] for j in range(len(arg.seq[1]))]
 highest = 0 # highest score in matrix
-spos = [] # Stop position
+spos = [] # stop position
 
 for i in range(len(arg.seq[1])):
 	for j in range(len(arg.seq[0])):
@@ -34,8 +34,11 @@ for i in range(len(arg.seq[1])):
 		elif h == highest:
 			spos.append([i, j])
 
-# Traceback
+# print the max score
+print(f'the score of the maximum alignment is {highest}')
+print('all possible alignments with the maximum score:')
 for each in spos:
+	# Traceback
 	track = [each]
 	while True:
 		x = each[0]
@@ -58,7 +61,7 @@ for each in spos:
 		for j in range(len(track)-1):
 			if track[j+1][i] - track[j][i] == 0:
 				gap[1-i].append(j+1)
-				#print(gap,j,track)
+
 	# Output
 	seq = [[], []]
 	for i in range(2):
